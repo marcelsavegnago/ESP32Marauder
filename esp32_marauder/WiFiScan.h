@@ -41,6 +41,8 @@
   #include "xiaoLED.h"
 #elif defined(MARAUDER_M5STICKC)
   #include "stickcLED.h"
+#elif defined(CYD_ESP32)
+  #include "cydLED.h" 
 #else
   #include "LedInterface.h"
 #endif
@@ -119,6 +121,8 @@ extern Settings settings_obj;
   extern xiaoLED xiao_led;
 #elif defined(MARAUDER_M5STICKC)
   extern stickcLED stickc_led;
+#elif defined(CYD_ESP32)
+  extern cydLED cyd_led; 
 #else
   extern LedInterface led_obj;
 #endif

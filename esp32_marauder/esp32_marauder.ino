@@ -40,6 +40,8 @@ https://www.online-utility.org/image/convert/to/XBM
   #include "xiaoLED.h"
 #elif defined(MARAUDER_M5STICKC)
   #include "stickcLED.h"
+#elif defined(CYD_ESP32)
+  #include "cydLED.h"  
 #elif defined(HAS_NEOPIXEL_LED)
   #include "LedInterface.h"
 #endif
@@ -111,6 +113,8 @@ CommandLine cli_obj;
   xiaoLED xiao_led;
 #elif defined(MARAUDER_M5STICKC)
   stickcLED stickc_led;
+#elif defined(CYD_ESP32)
+  cydLED cyd_led;
 #else
   LedInterface led_obj;
 #endif
@@ -289,6 +293,8 @@ void setup()
     xiao_led.RunSetup();
   #elif defined(MARAUDER_M5STICKC)
     stickc_led.RunSetup();
+  #elif defined(CYD_ESP32)
+    cyd_led.RunSetup();
   #else
     led_obj.RunSetup();
   #endif
@@ -397,6 +403,8 @@ void loop()
     xiao_led.main();
   #elif defined(MARAUDER_M5STICKC)
     stickc_led.main();
+  #elif defined(CYD_ESP32)
+    cyd_led.main();
   #else
     led_obj.main(currentTime);
   #endif
